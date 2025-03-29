@@ -1,13 +1,14 @@
-import re
 import ast
-import spotipy
-import pandas as pd
-import numpy as np
+import re
+
 import matplotlib.pyplot as plt
-from scipy.sparse import hstack, csr_matrix
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+import pandas as pd
+import spotipy
+from scipy.sparse import csr_matrix, hstack
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.preprocessing import MinMaxScaler
 from spotipy.oauth2 import SpotifyClientCredentials
 
 
@@ -303,7 +304,16 @@ def spotifind(
     print("spotifind() started")
     playlist_link = playlistLink
 
-    df = pd.read_csv("data/tracks_features.csv")
+    df = pd.concat(
+        [
+            pd.read_csv("data/tracks_features_part_1.csv"),
+            pd.read_csv("data/tracks_features_part_2.csv"),
+            pd.read_csv("data/tracks_features_part_3.csv"),
+            pd.read_csv("data/tracks_features_part_4.csv"),
+            pd.read_csv("data/tracks_features_part_5.csv"),
+        ],
+        ignore_index=True,
+    )
     artists_df = pd.read_csv("data/artists.csv")
 
     add_columns(df)
