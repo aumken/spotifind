@@ -1,8 +1,8 @@
 # Spotifind
 
-Made with: Python, Spotify Api (Spotipy), Scikit-Learn
+Vectorizing feature sets of playlists created using TF-IDF and OHE, then finding similar songs using the KNN algorithm. 
 
-Using Spotify API and Scikit-Learn to generate music recommendations based on a given playlist.
+Made with: Scikit-Learn, Spotify API (Spotipy), Python
 
 Instructions: 
 
